@@ -7,8 +7,8 @@ import processing.opengl.PGraphics3D;
 import processing.opengl.PJOGL;
 
 
-final int NX = 3;
-final int NY = 2;
+final int NX = 2;
+final int NY = 1;
 PeasyCam[] cameras = new PeasyCam[NX * NY];
 
 
@@ -112,7 +112,7 @@ public void displayScene(PeasyCam cam, int ID){
   fill(255,128,0);
   text("cam "+ID, 10, 15);
 
-  if(ID==0){
+  //if(ID==0){
 
     //display position of handt
 pushMatrix();
@@ -123,7 +123,7 @@ RightBox.displayPosition();
 translate(0,20);
 text("FrameRate " + floor(frameRate),0,0);
 popMatrix();
-  }
+  //}
 
 cam.endHUD();
 

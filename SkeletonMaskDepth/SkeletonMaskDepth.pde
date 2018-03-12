@@ -1,9 +1,14 @@
 import java.util.ArrayList;
 import KinectPV2.KJoint;
 import KinectPV2.*;
+import java.util.Iterator;
+
 
 
 Particle p;
+
+
+ArrayList<ParticleSystem> systems;
 
 KinectPV2 kinect;
 
@@ -12,7 +17,7 @@ HandController LeftBox = new HandController();
 HandController RightBox = new HandController();
 
 void settings(){
-   size(1280, 720, P3D); // 3D
+   size(1280, 720,P3D); // 3D
    smooth(8);
 
 }
@@ -30,8 +35,11 @@ void setup() {
     kinect.init();
     
     //il faudra régler des lumières ici
-    lights();
+  //  lights();
     
+    //particules system
+    systems=new ArrayList<ParticleSystem>();
+
 }
 
 
@@ -42,15 +50,19 @@ void draw() {
 
     background(0);
     getDataSkeleton();
-
     drawScene();
 
+    for(ParticleSystem ps: systems){
+        ps.run();
+        ps.addParticle(LeftBox);
+    }
 
 
 }
 
 
 void mouseClicked(){
+  //  systems.add(new ParticleSystem());
 
 }
 

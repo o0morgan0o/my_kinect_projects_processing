@@ -16,16 +16,13 @@ void drawScene(){
 
     
     if(LeftBox.state=="open"){
-        println("new part");
-        p= new Particle(LeftBox);  
+        if(frameCount % 60 == 0){
+            systems.add(new ParticleSystem());
+        }
     }
 
 
-    //part
-    if(p!=null){
-        p.update();
-        p.display();
-    }
+
    
     //dessine ligne qui relie les mains
     stroke(255);
