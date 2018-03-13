@@ -14,15 +14,18 @@ class ParticleSystem{
         origin = h.position.get();
         particles= new ArrayList();
         depthSystem= origin.z;
-        col = color(255,255,100);
+        col = color(255,100,50);
 
     }
 
     void addParticle(){
         particles.add(new Particle(h,origin, col));
+        particles.add(new Line(h,origin, col));
+        
     }
 
     void run(){
+            origin= h.position.get();
             Iterator<Particle> it = particles.iterator();
               while(it.hasNext()){
                 Particle p = it.next();

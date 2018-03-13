@@ -63,17 +63,15 @@ class HandController{
 
 
 
-    void display(HandController h){
+    void handHud(){
         stroke(col);
         fill(col);
         pushMatrix();
 
             translate(position.x, position.y);
             ellipse(0,0,radius,radius);
-            
-            if(h == RightBox){
             translate(20,-20);
-            fill(randomRed, randomGreen, randomBlue);
+            fill(col);
             noStroke();
             rect(0,0,30,30);
             fill(255);
@@ -81,7 +79,7 @@ class HandController{
             stroke(255);
             textSize(32);
             text(isNewColor,0,0);
-            }
+       
             
         popMatrix();
     }

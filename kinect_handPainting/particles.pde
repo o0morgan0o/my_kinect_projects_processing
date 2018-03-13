@@ -14,7 +14,7 @@ class ParticleSystem{
         origin = h.position.get();
         particles= new ArrayList();
         depthSystem= origin.z;
-        col = color(255,255,100);
+        col = color(floor(random(255)),floor(random(255)),floor(random(255)));
 
     }
 

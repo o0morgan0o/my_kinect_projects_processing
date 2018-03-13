@@ -9,7 +9,7 @@ void getDataSkeleton(){
      
       fill(col);
       stroke(col);
-      
+
 
       //récupore état de la main (ouvert ou fermé)
       RightBox.updateColor(joints[KinectPV2.JointType_HandRight]);
