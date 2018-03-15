@@ -10,10 +10,10 @@ float rx=0, ry=0, rz=0;
 float[] scaleFactor = {100,100};
 float[] translationFactor = { -55,-55};
 
-float correctionVerticCloud = 0.3;
+float correctionVerticCloud = 0;
 
 
-//POINT CLOUD****************************************
+//POINT CLOUD********************************$********
 int vertLoc;
 //transformations
 float a = 0;
@@ -23,7 +23,7 @@ float scaleVal = 300;
 float scaleDepthPoint = 300.0;
 //Distance Threashold
 int maxD = 1800; // 4m
-int minD = 1100; //  0m
+int minD = 500; //  0m
 //openGL object and shader
 PGL pgl;
 PShader sh;
@@ -115,16 +115,14 @@ void draw() {
     getDataSkeleton();
     nya.setARPerspective();
 
-    nya.beginTransform(i);
     pushMatrix();
+    nya.beginTransform(i);
 
     //translate(0,0,-40);
     //***draw scene, axis, floor
       fill(100, 100, 100);
-      //rect(-40, -40, 80, 80);
-        rotateZ(angleIncrement);
-       // println(angleIncrement);
-     /*
+      rect(-40, -40, 80, 80);
+
       stroke(0);
       strokeWeight(2);
       line(0, 0, 0, 100, 0, 0);
@@ -136,7 +134,6 @@ void draw() {
       line(0, 0, 0, 0, 0, 100);
       textFont(font, 20.0);
       text("Z", 0, 0, 100);
-    */
     //****Inital rotation for having right axis order
     rotateX(HALF_PI);
     rotateY(ry);
@@ -147,15 +144,14 @@ void draw() {
     rotateY(angleRotation[i].y);
     rotateZ(angleRotation[i].z);
     //---------------
-    //drawBody();
+    drawBody();
     //*****************************
     drawPointCloud(i);
     //*****************************
-  //angleIncrement = angleIncrement +0.1;
-    popMatrix();
     nya.endTransform();
+    popMatrix();
   }
-
+  angleIncrement+= 0.1;
 }
 
 
