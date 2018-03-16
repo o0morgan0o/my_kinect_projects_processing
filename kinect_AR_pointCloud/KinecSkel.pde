@@ -41,15 +41,15 @@ class Articulation{
     }
 
     void updatePosition(KJoint joint){
-        float sceneSize=100;
+      
         //scale the position to the scene
-        float xJoint = map(joint.getX(), minX,maxX, -sceneSize/2, sceneSize/2);
-        float yJoint = map(joint.getY(), minY,maxY, 0, sceneSize);
-        float zJoint = map(joint.getZ(), minZ,maxZ, -sceneSize/2, sceneSize/2);
+        float xJoint = map(joint.getX(), minX,maxX, -win.sceneSize/2, win.sceneSize/2);
+        float yJoint = map(joint.getY(), minY,maxY, 0, win.sceneSize);
+        float zJoint = map(joint.getZ(), minZ,maxZ, -win.sceneSize/2, win.sceneSize/2);
         
         //rectification of y and z axis to be inverted
         position = new PVector(xJoint, yJoint, -1*zJoint); 
-        position.mult(scaleDisplay);
+
   
         String posX = nf(position.x,0,2);
         String posY = nf(position.y,0,2);
@@ -63,7 +63,7 @@ class Articulation{
         translate(position.x, position.y, position.z);
         fill(col);
         stroke(col);
-        sphere(radius*scaleDisplay);
+        sphere(radius* win.sceneSize/100);
         popMatrix();
     }
 

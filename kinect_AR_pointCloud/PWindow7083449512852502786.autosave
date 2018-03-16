@@ -1,0 +1,64 @@
+
+import controlP5.*;
+ControlP5 cp5;
+ControlWindow controlWindow;
+
+
+class PWindow extends PApplet {
+  
+ public int minD=50;
+ public int maxD=2000;
+  
+  
+  PWindow() {
+    super();
+    PApplet.runSketch(new String[] {this.getClass().getSimpleName()}, this);
+  }
+
+  void settings() {
+    size(300, 800);
+  }
+
+  void setup() {
+    background(30);
+    cp5 = new ControlP5(this);
+    
+    text("Scene reglages", 40,20);
+    
+      cp5.addSlider("minD")
+     .setRange(0, 1500)
+     .setPosition(40, 40)
+     .setSize(200, 20)
+     //.moveTo(controlWindow)
+     ;
+
+     
+      cp5.addSlider("maxD")
+     .setRange(500, 7000)
+     .setPosition(40, 60)
+     .setSize(200, 20)
+     //.moveTo(controlWindow)
+     ;     
+  
+
+      
+
+
+}
+
+  void draw() {
+
+  }
+
+
+void myTextfield(String theValue) {
+ // println(theValue);
+}
+
+void myWindowTextfield(String theValue) {
+//  println("from controlWindow: "+theValue);
+}
+
+
+
+}
